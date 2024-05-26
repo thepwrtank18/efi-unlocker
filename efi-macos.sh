@@ -34,4 +34,17 @@ cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI64.ROM .
 ./macos/UEFIPatch EFI64.ROM patches.txt -o EFI64-MACOS.ROM
 rm -fv EFI64.ROM
 
+# Check version is 17+
+if [[ ${product[0]} -ge 17 ]]; then
+   printf "Patching 20-32-bit ROM...\n"
+   cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI20-32.ROM .
+   ./macos/UEFIPatch EFI20-32.ROM patches.txt -o EFI20-32-MACOS.ROM
+   rm -fv EFI20-32.ROM
+
+   printf "\nPatching 20-64-bit ROM...\n"
+   cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI20-64.ROM .
+   ./macos/UEFIPatch EFI20-64.ROM patches.txt -o EFI20-64-MACOS.ROM
+   rm -fv EFI20-64.ROM
+fi
+
 printf "\nFinished!\n"
