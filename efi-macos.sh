@@ -36,12 +36,12 @@ rm -fv EFI64.ROM
 
 # Check version is 13+
 if [[ ${product[0]} -ge 13 ]]; then
-   printf "Patching 20-32-bit ROM...\n"
+   printf "Patching 32-bit TPM 2.0 ROM...\n"
    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI20-32.ROM .
    ./macos/UEFIPatch EFI20-32.ROM patches.txt -o EFI20-32-MACOS.ROM
    rm -fv EFI20-32.ROM
 
-   printf "\nPatching 20-64-bit ROM...\n"
+   printf "\nPatching 64-bit TPM 2.0 ROM...\n"
    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI20-64.ROM .
    ./macos/UEFIPatch EFI20-64.ROM patches.txt -o EFI20-64-MACOS.ROM
    rm -fv EFI20-64.ROM
