@@ -35,7 +35,9 @@ macOS open a terminal session and run: efi-macos.sh
 The patched firmware files will be found in the same folder as the tool and are called:
 
 EFI32-MACOS.ROM - 32-bit firmware
+EFI20-32-MACOS.ROM - 32-bit firmware with TPM 2.0 support
 EFI64-MACOS.ROM - 64-bit firmware
+EFI20-64-MACOS.ROM - 64-bit firmware with TPM 2.0 support
 
 3. Using the firmware
 ------------------------
