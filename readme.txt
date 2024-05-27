@@ -46,10 +46,12 @@ There are 3 preferred ways to use the firmware, by VM, by user or by host system
 entries dependign on whether you are installing a 32 or 64-bit version of 10.5 or 10.6 as a guest.
 
 32-bit:
-efi32.filename = "filename"
+efi32.filename = "EFI32-MACOS.ROM"
+efi20-32.filename = "EFI20-32-MACOS.ROM"
 
 64-bit:
-efi64.filename = "filename"
+efi64.filename = "EFI64-MACOS.ROM"
+efi20-64.filename = "EFI20-64-MACOS.ROM"
 
 You can add both and the correct one will be used based on the the guestos setting. You will need to put the full
 filename for the patched files into the double quotes.
@@ -60,7 +62,7 @@ Per VM:
 Open the vmx file for the guest and add the relevant lines from above.
 
 Per User:
-Add the 2 lines to the user defaults file which can be found in the following paths.
+Add the 4 lines to the user defaults file which can be found in the following paths.
 Windows: %APPDATA%\VMware\config.ini
 Linux: ~/.vmware/config
 macOS: ~/Library/Preferences/VMware Fusion/config
