@@ -1,4 +1,4 @@
-macOS EFI Unlocker V1.0 for VMware
+macOS EFI Unlocker V1.1 for VMware
 ==================================
 
 1. Introduction
@@ -14,8 +14,8 @@ do not need the modified firmware due to Apple removing the restrictions imposed
 
 EFI Unlocker 1 is designed for the following products:
 
-* VMware Workstation and Player versions 14/15
-* VMware Fusion versions 10/11
+* VMware Workstation and Player versions 14-17
+* VMware Fusion versions 10-13
 
 The checks for the server versions are done in VMware's virtual EFI firmware and looks for a file called
 ServerVersion.plist in the installation media and the installed OS. The patch modifies the firmware to check
@@ -77,6 +77,7 @@ https://github.com/LongSoft/UEFITool
 
 History
 -------
+24/05/26 1.1.0 - Workstation 17/Fusion 13 support
 22/10/18 1.0.0 - First release
 
 (c) 2018 Dave Parsons
