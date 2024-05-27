@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-printf "\nEFI Unlocker 1.0.0 for VMware Fusion\n"
+printf "\nEFI Unlocker 1.1.0 for VMware Fusion\n"
 printf "======================================\n"
 printf "(c) Dave Parsons 2018\n\n"
 
