@@ -79,6 +79,8 @@ Thanks goes to the UEFITools project for the patching tool used to modify the fi
 https://forums.mydigitallife.net/threads/uefitool-uefi-firmware-image-viewer-and-editor.48979/
 https://github.com/LongSoft/UEFITool
 
+The project uses the command-line tool UEFIPatch, which can be found here: https://github.com/LongSoft/UEFITool/releases/tag/0.25.1
+
 History
 -------
 24/05/26 1.1.0 - Workstation 17/Fusion 13 support
