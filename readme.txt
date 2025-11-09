@@ -14,8 +14,8 @@ do not need the modified firmware due to Apple removing the restrictions imposed
 
 EFI Unlocker 1 is designed for the following products:
 
-* VMware Workstation and Player versions 14-17
-* VMware Fusion versions 10-13
+* VMware Workstation and Player versions 14-17 & 25H2
+* VMware Fusion versions 10-13 & 25H2
 
 The checks for the server versions are done in VMware's virtual EFI firmware and looks for a file called
 ServerVersion.plist in the installation media and the installed OS. The patch modifies the firmware to check
