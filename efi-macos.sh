@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-printf "\nEFI Unlocker 1.1.0 for VMware Fusion\n"
+printf "\nEFI Unlocker 1.1.1 for VMware Fusion\n"
 printf "======================================\n"
 printf "(c) Dave Parsons 2018\n\n"
 
@@ -24,27 +24,51 @@ if [[ ${product[0]} -lt 10 ]]; then
    exit 1
 fi
 
-printf "Patching 32-bit ROM...\n"
-cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI32.ROM .
-./macos/UEFIPatch EFI32.ROM patches.txt -o EFI32-MACOS.ROM
-rm -fv EFI32.ROM
+if [[ ${product[0]} -lt 25 ]]; then
+    printf "Patching 32-bit ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI32.ROM .
+    ./macos/UEFIPatch EFI32.ROM patches.txt -o EFI32-MACOS.ROM
+    rm -fv EFI32.ROM
 
-printf "\nPatching 64-bit ROM...\n"
-cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI64.ROM .
-./macos/UEFIPatch EFI64.ROM patches.txt -o EFI64-MACOS.ROM
-rm -fv EFI64.ROM
+    printf "\nPatching 64-bit ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI64.ROM .
+    ./macos/UEFIPatch EFI64.ROM patches.txt -o EFI64-MACOS.ROM
+    rm -fv EFI64.ROM
 
-# Check version is 13+
-if [[ ${product[0]} -ge 13 ]]; then
-   printf "Patching 32-bit TPM 2.0 ROM...\n"
-   cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI20-32.ROM .
-   ./macos/UEFIPatch EFI20-32.ROM patches.txt -o EFI20-32-MACOS.ROM
-   rm -fv EFI20-32.ROM
+    # Check version is 13+
+    if [[ ${product[0]} -ge 13 ]]; then
+       printf "Patching 32-bit TPM 2.0 ROM...\n"
+       cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/EFI20-32.ROM .
+       ./macos/UEFIPatch EFI20-32.ROM patches.txt -o EFI20-32-MACOS.ROM
+       rm -fv EFI20-32.ROM
 
-   printf "\nPatching 64-bit TPM 2.0 ROM...\n"
-   cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI20-64.ROM .
-   ./macos/UEFIPatch EFI20-64.ROM patches.txt -o EFI20-64-MACOS.ROM
-   rm -fv EFI20-64.ROM
+       printf "\nPatching 64-bit TPM 2.0 ROM...\n"
+       cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms//EFI20-64.ROM .
+       ./macos/UEFIPatch EFI20-64.ROM patches.txt -o EFI20-64-MACOS.ROM
+       rm -fv EFI20-64.ROM
+    fi
+fi
+
+if [[ ${product[0]} -ge 25 ]]; then
+    printf "Patching 32-bit ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/x86_x64/EFI32.ROM .
+    ./macos/UEFIPatch EFI32.ROM patches.txt -o EFI32-MACOS.ROM
+    rm -fv EFI32.ROM
+
+    printf "\nPatching 64-bit ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/x86_x64/EFI64.ROM .
+    ./macos/UEFIPatch EFI64.ROM patches.txt -o EFI64-MACOS.ROM
+    rm -fv EFI64.ROM
+
+    printf "Patching 32-bit TPM 2.0 ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/x86_x64/EFI20-32.ROM .
+    ./macos/UEFIPatch EFI20-32.ROM patches.txt -o EFI20-32-MACOS.ROM
+    rm -fv EFI20-32.ROM
+
+    printf "\nPatching 64-bit TPM 2.0 ROM...\n"
+    cp -v /Applications/VMware\ Fusion.app/Contents/Library/roms/x86_x64/EFI20-64.ROM .
+    ./macos/UEFIPatch EFI20-64.ROM patches.txt -o EFI20-64-MACOS.ROM
+    rm -fv EFI20-64.ROM
 fi
 
 printf "\nFinished!\n"
