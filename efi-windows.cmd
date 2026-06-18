@@ -6,7 +6,7 @@ echo =============================
 echo (c) Dave Parsons 2018
 
 echo.
-set KeyName="HKLM\SOFTWARE\VMware, Inc.\VMware Player"
+set KeyName="HKLM\SOFTWARE\VMware, Inc.\VMware Workstation"
 REG QUERY %KeyName% /v InstallPath >nul 2>&1
 if %errorlevel% neq 0 (
     set KeyName="HKLM\SOFTWARE\Wow6432Node\VMware, Inc.\VMware Player"
